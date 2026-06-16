@@ -1,24 +1,38 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 
-interface SectionTitleProps extends React.HTMLAttributes<HTMLDivElement> {
+interface SectionTitleProps {
   title: string;
-  subtitle?: string;
+  subtitle: string;
   centered?: boolean;
+  className?: string;
 }
 
-export const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, centered = false, className, ...props }) => {
+export const SectionTitle: React.FC<SectionTitleProps> = ({ 
+  title, 
+  subtitle, 
+  centered = false,
+  className 
+}) => {
   return (
-    <div className={cn('mb-10', centered && 'text-center', className)} {...props}>
-      <h2 className="text-3xl md:text-4xl font-bold text-brand-black mb-4">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5 }}
+      className={cn(
+        "mb-16",
+        centered ? "text-center" : "text-left",
+        className
+      )}
+    >
+      <span className="text-brand-green font-bold tracking-wider uppercase text-sm mb-3 block">
+        {subtitle}
+      </span>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-black tracking-tight">
         {title}
       </h2>
-      {subtitle && (
-        <p className="text-gray-600 max-w-2xl text-lg" style={centered ? { margin: '0 auto' } : {}}>
-          {subtitle}
-        </p>
-      )}
-      <div className={cn("h-1.5 w-20 bg-brand-green rounded-full mt-6", centered && "mx-auto")} />
-    </div>
+    </motion.div>
   );
 };

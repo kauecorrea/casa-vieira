@@ -12,7 +12,7 @@ export const Location: React.FC = () => {
   const currentDayIndex = new Date().getDay();
 
   return (
-    <section id="horarios" className="py-24 bg-gray-50">
+    <section id="localizacao" className="py-24 bg-brand-gray-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="Onde Estamos & Horários" 
