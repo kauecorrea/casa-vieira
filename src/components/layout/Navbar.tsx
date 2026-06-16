@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Menu, MessageCircle } from 'lucide-react';
+import { Menu, MessageCircle } from 'lucide-react';
 import { NAVIGATION_ITEMS } from '../../constants/navigation';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { useBusinessHours } from '../../hooks/useBusinessHours';
