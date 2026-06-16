@@ -1,0 +1,9 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="100" fill="#2E7D32" />
+  <!-- White Roof -->
+  <path d="M104 280 L256 146 L408 280 L408 236 L256 102 L104 236 Z" fill="#FFFFFF" />
+  <!-- Chimney -->
+  <rect x="340" y="120" width="34" height="68" fill="#FFFFFF" />
+  <!-- Red Swoosh -->
+  <path d="M90 324 C192 264 320 264 422 324 C320 290 192 290 90 324 Z" fill="#C62828" />
+</svg>

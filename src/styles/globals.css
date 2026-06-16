@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans bg-brand-gray-light text-brand-black antialiased;
+  }
+}
+
+@layer components {
+  /* Hero geometric background */
+  .bg-pattern {
+    background-color: #f0fdf4;
+    background-image: radial-gradient(#dcfce7 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
