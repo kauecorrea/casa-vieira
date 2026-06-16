@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
             {/* Logo */}
             <a href="#inicio" className="flex items-center gap-3 relative z-10 group">
               <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-brand-green group-hover:scale-105 transition-transform">
-                <img src="/logo.svg" alt="Casa Vieira" className="h-6 w-6" />
+                <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Casa Vieira" className="h-6 w-6" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold leading-tight text-brand-black">Casa Vieira</span>
