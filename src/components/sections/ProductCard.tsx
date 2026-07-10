@@ -1,14 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import type { Product } from '../../types';
-import { buildWhatsAppUrl } from '../../utils/whatsapp';
+import { ShoppingCart } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { useCart } from '../../context/CartContext';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const { addToCart } = useCart();
+
   return (
     <motion.div
       layout
@@ -39,9 +42,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <Button 
           variant="outline-green" 
           className="w-full mt-auto"
-          onClick={() => window.open(buildWhatsAppUrl(product.whatsappMessage), '_blank')}
+          leftIcon={<ShoppingCart className="w-4 h-4" />}
+          onClick={() => addToCart(product)}
         >
-          Solicitar via WhatsApp
+          Adicionar ao Orçamento
         </Button>
       </div>
     </motion.div>

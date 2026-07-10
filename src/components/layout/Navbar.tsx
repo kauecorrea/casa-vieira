@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, MessageCircle } from 'lucide-react';
+import { Menu, MessageCircle, ShoppingCart } from 'lucide-react';
 import { NAVIGATION_ITEMS } from '../../constants/navigation';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { useBusinessHours } from '../../hooks/useBusinessHours';
@@ -8,6 +8,7 @@ import { cn } from '../../utils/cn';
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
 import { MobileMenu } from './MobileMenu';
+import { useCart } from '../../context/CartContext';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,6 +17,7 @@ export const Navbar: React.FC = () => {
   const sectionIds = NAVIGATION_ITEMS.map(item => item.href.substring(1));
   const activeSection = useScrollSpy(sectionIds, 100);
   const { isOpen } = useBusinessHours();
+  const { totalItems, openCart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,8 +72,21 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Actions */}
-            <div className="hidden md:flex items-center gap-4">
-              <Badge variant={isOpen ? 'green' : 'red'} className="hidden lg:inline-flex">
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={openCart}
+                className="relative p-2 text-gray-600 hover:text-brand-green transition-colors focus:outline-none"
+              >
+                <ShoppingCart className="w-6 h-6" />
+                {totalItems > 0 && (
+                  <span className="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-brand-red rounded-full">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+
+              <div className="hidden md:flex items-center gap-4">
+                <Badge variant={isOpen ? 'green' : 'red'}>
                 {isOpen ? 'Aberto agora' : 'Fechado'}
               </Badge>
               <Button 
@@ -82,6 +97,7 @@ export const Navbar: React.FC = () => {
               >
                 WhatsApp
               </Button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
