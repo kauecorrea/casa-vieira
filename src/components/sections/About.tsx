@@ -5,7 +5,7 @@ import { useAnimatedCounter } from '../../hooks/useAnimatedCounter';
 import type { Stat } from '../../types';
 
 const STATS: Stat[] = [
-  { value: 15, suffix: '+', label: 'Anos no mercado' },
+  { value: 11, suffix: '+', label: 'Anos no mercado' },
   { value: 500, suffix: '+', label: 'Produtos disponíveis' },
   { value: 8000, suffix: '+', label: 'Clientes atendidos' },
   { value: 100, suffix: '%', label: 'Compromisso com você' }
