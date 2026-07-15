@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
 ], {
-  basename: import.meta.env.MODE === 'production' ? '/casa-vieira' : '/',
+  basename: import.meta.env.BASE_URL,
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
